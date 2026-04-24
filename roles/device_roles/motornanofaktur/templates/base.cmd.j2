@@ -1,0 +1,16 @@
+## Register all support components
+dbLoadDatabase("$(TEMPLATE_TOP)/dbd/{{ deploy_ioc_executable }}.dbd",0,0)
+{{ deploy_ioc_executable }}_registerRecordDeviceDriver(pdbbase)
+
+## motorUtil (allstop & alldone)
+dbLoadRecords("$(MOTOR)/db/motorUtil.db", "P=$(P)")
+
+## NanoFaktur motor support
+drvAsynIPPortConfigure("$(ASYN_PORT)","$(CONTROLLER_IP):$(CONTROLLER_PORT)",0,0,0)
+
+# Create NanoFaktur controller
+# nFSystemCreateController(portName, asynPort, numAxes, movingPollingRate, idlePollingRate)
+nFSystemCreateController("$(PORT)", "$(ASYN_PORT)", {{ ioc.axes | length }}, 500, 1000)
+
+# Load motor substitutions
+dbLoadTemplate("$(TOP)/db/motornanofaktur.substitutions")

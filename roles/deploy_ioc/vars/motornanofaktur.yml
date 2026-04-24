@@ -1,0 +1,8 @@
+---
+
+deploy_ioc_template_root_path: "{{ deploy_ioc_required_module_path }}"
+deploy_ioc_required_module: motornanofaktur_c9b0557
+deploy_ioc_make_autosave_files: true
+deploy_ioc_executable: nanofaktur
+deploy_ioc_device_specific_env:
+  MOTOR_NANOFAKTUR: "/epics/modules/motorNanoFaktur"

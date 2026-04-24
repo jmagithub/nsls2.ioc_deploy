@@ -1,0 +1,8 @@
+---
+
+motornanofaktur_c9b0557:
+  name: motornanofaktur
+  url: https://github.com/NSLS2/motorNanoFaktur
+  version: c9b0557
+  config:
+    BUILD_IOCS: "YES"

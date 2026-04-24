@@ -1,0 +1,26 @@
+---
+
+- name: Deploy base startup script
+  ansible.builtin.template:
+    src: base.cmd.j2
+    dest: "{{ deploy_ioc_ioc_directory }}/iocBoot/base.cmd"
+    owner: "{{ host_config.softioc_user }}"
+    group: "{{ host_config.softioc_group }}"
+    mode: "0664"
+
+- name: Copy database template for nanofaktur controller
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "{{ deploy_ioc_ioc_directory }}/db"
+    owner: "{{ host_config.softioc_user }}"
+    group: "{{ host_config.softioc_group }}"
+    mode: "0664"
+  with_fileglob: "files/*.template"
+
+- name: Install substitution file
+  ansible.builtin.template:
+    src: "templates/motornanofaktur.substitutions.j2"
+    dest: "{{ deploy_ioc_ioc_directory }}/db/motornanofaktur.substitutions"
+    owner: "{{ host_config.softioc_user }}"
+    group: "{{ host_config.softioc_group }}"
+    mode: "0664"

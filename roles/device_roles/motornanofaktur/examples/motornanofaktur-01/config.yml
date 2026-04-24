@@ -1,0 +1,62 @@
+---
+
+motornanofaktur-01:
+  type: motornanofaktur
+  environment:
+    ENGINEER: "J. Ma"
+    PORT: "NF1"
+    ASYN_PORT: "NF1_ETH"
+    P: "XF:31ID-ES"
+    R: "{NF:1}"
+    PREFIX: "$(P)$(R)"
+    CONTROLLER_IP: "10.66.xx.xx"
+    CONTROLLER_PORT: 50000
+  axes:
+    - suffix: "{NF:1-Ax:X}Mtr"
+      addr: 0
+      desc: "NanoFaktur X"
+      egu: "um"
+      dir: "Pos"
+      velo: 5
+      vbas: 0
+      accl: 0.2
+      bdst: 0
+      bvel: 1
+      bacc: 0.2
+      mres: 0.0001
+      prec: 4
+      dhlm: 0
+      dllm: 0
+      init: ""
+    - suffix: "{NF:1-Ax:Y}Mtr"
+      addr: 1
+      desc: "NanoFaktur Y"
+      egu: "um"
+      dir: "Pos"
+      velo: 5
+      vbas: 0
+      accl: 0.2
+      bdst: 0
+      bvel: 1
+      bacc: 0.2
+      mres: 0.0001
+      prec: 4
+      dhlm: 0
+      dllm: 0
+      init: ""
+    - suffix: "{NF:1-Ax:Z}Mtr"
+      addr: 2
+      desc: "NanoFaktur Z"
+      egu: "um"
+      dir: "Pos"
+      velo: 5
+      vbas: 0
+      accl: 0.2
+      bdst: 0
+      bvel: 1
+      bacc: 0.2
+      mres: 0.0001
+      prec: 4
+      dhlm: 0
+      dllm: 0
+      init: ""
